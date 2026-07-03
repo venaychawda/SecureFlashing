@@ -3,6 +3,8 @@
 Spec-driven, TDD simulation of a secure ECU flashing stack implementing AUTOSAR Classic modules:
 DCM · CSM · CryIf · HSM · DEM · NvM · Bootloader · FlashManager · SecurityAccess
 
+**[▶ Live Demo](https://venaychawda.github.io/SecureFlashing/)**
+
 ## Quick Start
 
 ```bash
