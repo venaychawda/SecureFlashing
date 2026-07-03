@@ -97,8 +97,8 @@ REM Git for Windows / MSYS PATH entries) that doesn't understand /t syntax.
 "%SystemRoot%\System32\timeout.exe" /t 4 /nobreak >nul
 
 REM -- 7. Open the live monitor dashboard (the client) ----------------
-echo [5/5] Opening dashboard\secure_flashing_classic_monitor.html ...
-start "" "%~dp0dashboard\secure_flashing_classic_monitor.html"
+echo [5/5] Opening docs\secure_flashing_classic_monitor.html ...
+start "" "%~dp0docs\secure_flashing_classic_monitor.html"
 
 echo.
 echo ============================================================
