@@ -1,16 +1,16 @@
-# User Guide — Validating Automotive Cybersecurity with `SecureFlashing.html`
+# User Guide — Validating Automotive Cybersecurity with `secure_flashing_classic_monitor.html`
 
-**File:** `dashboard/SecureFlashing.html`
+**File:** `docs/index.html`
 **Type:** Standalone Proof-of-Concept dashboard — pure HTML + JavaScript, no server required
 **Purpose:** Walk through the full secure ECU firmware-flashing lifecycle and visually confirm that every cybersecurity control required by `requirements/SoftwareRequirements_AUTOSAR_CLASSIC.txt` (SWR-C-001 … SWR-C-020) behaves correctly, without needing Python, a backend, or real hardware.
 
-> This dashboard **simulates** the logic of the `sim/` Python modules in JavaScript for demonstration purposes. Signatures, hashes, and crypto failures are faked (`fakeSign()` / `fakeVerify()`) so the flow can be explored instantly in a browser. For a version that drives the **real** Python cryptography (ECDSA P-256, SHA-256) over a live FastAPI backend, use `dashboard/secure_flashing_classic_monitor.html` instead (see the note at the end of this document).
+> This dashboard **simulates** the logic of the `sim/` Python modules in JavaScript for demonstration purposes. Signatures, hashes, and crypto failures are faked (`fakeSign()` / `fakeVerify()`) so the flow can be explored instantly in a browser. For a version that drives the **real** Python cryptography (ECDSA P-256, SHA-256) over a live FastAPI backend, use `docs/secure_flashing_classic_monitor.html` instead (see the note at the end of this document).
 
 ---
 
 ## 1. Getting Started
 
-1. Double-click `dashboard/SecureFlashing.html`, or open it via `File → Open` in any modern browser.
+1. Double-click `docs/SecureFlashing.html`, or open it via `File → Open` in any modern browser.
 2. No installation, server, or network connection is needed — everything runs client-side.
 3. The page loads with a system-ready log entry and all panels initialized to their default (IDLE / unauthenticated) state.
 
@@ -196,12 +196,12 @@ The 16 VTCs, at a glance:
 
 ## 11. Important Limitation — This is a Simulation
 
-`SecureFlashing.html` fakes cryptography in JavaScript (`fakeSign()` / `fakeVerify()` — see the file's `<script>` section) purely so the control-flow logic can be demonstrated instantly, offline, with no dependencies. It does **not** call real ECDSA P-256 signing/verification, and it does **not** exercise the actual Python `sim/` modules.
+`index.html` fakes cryptography in JavaScript (`fakeSign()` / `fakeVerify()` — see the file's `<script>` section) purely so the control-flow logic can be demonstrated instantly, offline, with no dependencies. It does **not** call real ECDSA P-256 signing/verification, and it does **not** exercise the actual Python `sim/` modules.
 
 For a version that performs **real cryptography** by calling the live FastAPI backend and the actual `sim/hsm.py`, `sim/security_access.py`, `sim/flash_manager.py`, etc., use:
 
 ```
-dashboard/secure_flashing_classic_monitor.html
+docs/secure_flashing_classic_monitor.html
 ```
 
 which requires the backend running first:
